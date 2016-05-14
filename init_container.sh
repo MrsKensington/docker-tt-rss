@@ -20,7 +20,7 @@ sed -i "s|%PLUGIN_LIST%|${PLUGIN_LIST}|g" ${FILE}
 if [ "${DB_TYPE}" == "mysql" ]; then
     mysql -h ${DB_HOST} -u ${DB_USER} --password=${DB_PASS} ${DB_NAME} -e "SELECT * FROM ttrss_version" >> /dev/null 2>&1
     if [ $? == 0 ]; then
-        sudo -u www-data /usr/local/bin/php /code/tt-rss/update.php --update-schema
+        sudo -u www-data sh -c "echo yes | /usr/local/bin/php /code/tt-rss/update.php --update-schema"
     else
         mysql -h ${DB_HOST} -u ${DB_USER} --password=${DB_PASS} ${DB_NAME} < /code/tt-rss/schema/ttrss_schema_mysql.sql
     fi
