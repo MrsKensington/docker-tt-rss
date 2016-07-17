@@ -1,4 +1,4 @@
-FROM mrskensington/docker-php-with-ext
+FROM mrskensington/docker-php-with-ext:7-fpm
 MAINTAINER docker@mikeditum.co.uk
 
 RUN apt-get update && \
