@@ -28,4 +28,4 @@ fi
 
 /etc/init.d/supervisor start
 
-php-fpm
+/usr/local/sbin/php-fpm
